@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tut/pages/homaPage.dart';
 import 'package:tut/pages/loginPage.dart';
 import 'package:tut/utils/routes.dart';
+import 'package:tut/widgets/themes.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,16 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        primaryTextTheme: GoogleFonts.poppinsTextTheme(),
-        fontFamily: GoogleFonts.poppins().fontFamily,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/",
+      initialRoute: "/home",
       routes: {
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.HomeRoute: (context) => HomePage()
